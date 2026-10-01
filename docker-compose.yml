@@ -3,7 +3,8 @@ services:
     build: .
     image: my-jenkins:lts
     container_name: jenkins
-    user: root                       # для доступа к docker.sock без ошибок прав
+    group_add:
+     - "0"
     ports:
       - "8081:8080"                   
       - "50000:50000"

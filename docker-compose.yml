@@ -3,14 +3,13 @@ services:
     build: .
     image: my-jenkins:lts
     container_name: jenkins
-    group_add:
-     - "0"
+
     ports:
       - "8081:8080"                   
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home                    # том из inspect
-      - /var/run/docker.sock:/var/run/docker.sock         # сокет 
+
     restart: unless-stopped
 
 volumes:
